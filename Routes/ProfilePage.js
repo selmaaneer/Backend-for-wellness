@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/UserModel');
 
-// Get user profile
+
 router.get('/:userId', (req, res) => {
     const { userId } = req.params;
     User.findById(userId)
@@ -16,12 +16,12 @@ router.get('/:userId', (req, res) => {
         .catch(err => console.log(err));
 });
 
-// Update user profile
+
 router.put('/:userId', (req, res) => {
     const { userId } = req.params;
     const { username, email, age, profilePicture, gender } = req.body;
 
-    // Perform validation
+    
     if (!username || !email || !age || !profilePicture || !gender) {
         return res.status(400).json({ message: 'All fields are required' });
     }

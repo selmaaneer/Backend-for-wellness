@@ -14,7 +14,7 @@ module.exports.userVerification = async (req, res) => {
             try {
                 const user = await User.findById(data.id);
                 if (user) {
-                    // Send the user profile data along with the authentication response
+
                     res.json({
                         status: true,
                         user: {
